@@ -41,12 +41,14 @@ public class UnproducableCameraRollBeanFactoryPostProcessor implements BeanFacto
                 // проверяем, содержал ли класс эту аннотацию
                 if (annotation != null) {
 
-                    log.info("Нашли класс с аннотацией: [{}]", annotation.annotationType().getName());
+                    log.info("Нашли класс [{}] с аннотацией: [{}]", beanClass.getSimpleName(),
+                            annotation.annotationType().getSimpleName());
                     // получаем значение указанное в параметрах аннотации(класс пленки, которую необходимо использовать)
                     Class usingCameraRollName = annotation.usingCameraRollClass();
 
                     // меняем класс будущего бина!
-                    log.info("Подменяем класс бина [{}], на - [{}]", beanClass.getName(), usingCameraRollName.getName());
+                    log.info("Подменяем класс [{}], на - [{}]", beanClass.getSimpleName(),
+                            usingCameraRollName.getSimpleName());
                     beanDefinition.setBeanClassName(usingCameraRollName.getName());
                 }
 

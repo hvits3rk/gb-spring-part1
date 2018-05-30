@@ -1,7 +1,7 @@
 package com.romantupikov.lesson2;
 
-import com.romantupikov.lesson2.component.Camera;
 import com.romantupikov.config.AppConfig;
+import com.romantupikov.lesson2.component.Camera;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -17,7 +17,7 @@ public class Main {
         ConfigurableApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 
         log.info("Берем бин из контекста...");
-        Camera camera = context.getBean(Camera.class);
+        Camera camera = context.getBean("cameraImpl", Camera.class);
 
         log.info("Делаю фото!");
         camera.doPhotograph();

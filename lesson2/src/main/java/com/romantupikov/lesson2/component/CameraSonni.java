@@ -1,6 +1,5 @@
 package com.romantupikov.lesson2.component;
 
-import com.romantupikov.lesson2.annotation.NotAvailable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -11,17 +10,16 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 
 @Component
-@NotAvailable(fallbackClass = com.romantupikov.lesson2.component.CameraSonni.class)
 @PropertySource("classpath:config/application.properties")
-public class CameraImpl implements Camera {
-    private static final Logger log = LoggerFactory.getLogger(CameraImpl.class);
+public class CameraSonni implements Camera {
+    private static final Logger log = LoggerFactory.getLogger(CameraSonni.class);
 
     private CameraRoll cameraRoll;
 
-    @Value("${camera.base.broken}")
+    @Value("${camera.sonni.broken}")
     private boolean broken;
 
-    public CameraImpl(@Qualifier("blackAndWhiteCameraRoll") CameraRoll cameraRoll) {
+    public CameraSonni(@Qualifier("blackAndWhiteCameraRoll") CameraRoll cameraRoll) {
         this.cameraRoll = cameraRoll;
     }
 
