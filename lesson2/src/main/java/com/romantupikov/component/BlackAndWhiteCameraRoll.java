@@ -3,7 +3,7 @@ package com.romantupikov.component;
 import com.romantupikov.annotation.UnproducableCameraRoll;
 import org.springframework.stereotype.Component;
 
-@Component("cameraRoll")
+@Component
 @UnproducableCameraRoll(usingCameraRollClass = ColorCameraRoll.class)
 public class BlackAndWhiteCameraRoll implements CameraRoll {
 

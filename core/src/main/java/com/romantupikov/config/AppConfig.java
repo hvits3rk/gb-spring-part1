@@ -1,4 +1,4 @@
-package com.romantupikov;
+package com.romantupikov.config;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;

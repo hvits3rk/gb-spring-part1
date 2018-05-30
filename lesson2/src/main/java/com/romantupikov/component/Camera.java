@@ -6,7 +6,7 @@ public interface Camera {
 
     void setCameraRoll(CameraRoll cameraRoll);
 
-    void doPhotograph();
+    boolean doPhotograph();
 
     void breaking();
 
