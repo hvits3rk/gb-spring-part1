@@ -1,4 +1,4 @@
-package com.romantupikov.component;
+package com.romantupikov.lesson2.component;
 
 public interface Camera {
 

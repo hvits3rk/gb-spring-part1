@@ -1,4 +1,4 @@
-package com.romantupikov.component;
+package com.romantupikov.lesson1.component;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

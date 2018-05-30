@@ -26,7 +26,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.romantupikov.Main</mainClass>
+                            <mainClass>com.romantupikov.lesson1.Main</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>

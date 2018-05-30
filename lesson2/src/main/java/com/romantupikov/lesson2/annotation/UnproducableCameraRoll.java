@@ -1,4 +1,4 @@
-package com.romantupikov.annotation;
+package com.romantupikov.lesson2.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

@@ -1,4 +1,4 @@
-package com.romantupikov;
+package com.romantupikov.lesson1;
 
 import com.romantupikov.config.AppConfig;
 import org.springframework.context.ConfigurableApplicationContext;

@@ -1,5 +1,7 @@
-package com.romantupikov.component.lifecycle;
+package com.romantupikov.lesson2.component.lifecycle;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
@@ -9,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class TestBFPP implements BeanFactoryPostProcessor {
+    private static final Logger log = LoggerFactory.getLogger(TestBFPP.class);
 
     public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
 
@@ -22,7 +25,7 @@ public class TestBFPP implements BeanFactoryPostProcessor {
             BeanDefinition beanDefinition = beanFactory.getBeanDefinition(name);
 
             // Вывод информации о BeanDefinition
-            System.out.println(beanDefinition.toString());
+            log.debug(beanDefinition.toString());
         }
     }
 }

@@ -4,7 +4,9 @@
             <pattern>%date [%thread] [%-5level] %logger{40} - %message%n</pattern>
         </encoder>
     </appender>
-    <logger name="com.romantupikov" level="DEBUG"/>
+    <logger name="com.romantupikov" level="INFO"/>
+    <logger name="com.romantupikov.lesson1" level="INFO"/>
+    <logger name="com.romantupikov.lesson2" level="INFO"/>
     <logger name="org.springframework" level="ERROR"/>
 
     <root level="INFO">

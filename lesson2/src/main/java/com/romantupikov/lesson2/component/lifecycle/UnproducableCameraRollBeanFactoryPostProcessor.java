@@ -1,6 +1,8 @@
-package com.romantupikov.component.lifecycle;
+package com.romantupikov.lesson2.component.lifecycle;
 
-import com.romantupikov.annotation.UnproducableCameraRoll;
+import com.romantupikov.lesson2.annotation.UnproducableCameraRoll;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
@@ -9,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class UnproducableCameraRollBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
+    private static final Logger log = LoggerFactory.getLogger(UnproducableCameraRollBeanFactoryPostProcessor.class);
 
     public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
 
@@ -38,10 +41,12 @@ public class UnproducableCameraRollBeanFactoryPostProcessor implements BeanFacto
                 // проверяем, содержал ли класс эту аннотацию
                 if (annotation != null) {
 
+                    log.info("Нашли класс с аннотацией: [{}]", annotation.annotationType().getName());
                     // получаем значение указанное в параметрах аннотации(класс пленки, которую необходимо использовать)
                     Class usingCameraRollName = annotation.usingCameraRollClass();
 
                     // меняем класс будущего бина!
+                    log.info("Подменяем класс бина [{}], на - [{}]", beanClass.getName(), usingCameraRollName.getName());
                     beanDefinition.setBeanClassName(usingCameraRollName.getName());
                 }
 

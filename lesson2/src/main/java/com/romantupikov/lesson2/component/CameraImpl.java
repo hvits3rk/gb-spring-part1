@@ -1,5 +1,8 @@
-package com.romantupikov.component;
+package com.romantupikov.lesson2.component;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
@@ -9,13 +12,14 @@ import javax.annotation.PostConstruct;
 @Component
 @PropertySource("classpath:config/application.properties")
 public class CameraImpl implements Camera {
+    private static final Logger log = LoggerFactory.getLogger(CameraImpl.class);
 
     private CameraRoll cameraRoll;
 
     @Value("${camera.broken}")
     private boolean broken;
 
-    public CameraImpl(CameraRoll cameraRoll) {
+    public CameraImpl(@Qualifier("blackAndWhiteCameraRoll") CameraRoll cameraRoll) {
         this.cameraRoll = cameraRoll;
     }
 
@@ -43,10 +47,10 @@ public class CameraImpl implements Camera {
     public boolean doPhotograph() {
         if (isBroken()) {
 
-            System.out.println("Фотоаппарат сломан!");
+            log.info("Фотоаппарат сломан!");
             return false;
         }
-        System.out.println("Сделана фотография!");
+        log.info("Сделана фотография!");
         cameraRoll.processing();
         return true;
     }
@@ -54,6 +58,6 @@ public class CameraImpl implements Camera {
     @PostConstruct
     @Override
     public void ready() {
-        System.out.println("Фотоаппарат готов к использованию!");
+        log.info("Фотоаппарат готов к использованию!");
     }
 }
