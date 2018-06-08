@@ -1,10 +1,13 @@
 package com.romantupikov.lesson3.service;
 
+import com.romantupikov.lesson3.entity.Ad;
 import com.romantupikov.lesson3.entity.Company;
 import com.romantupikov.lesson3.repository.CompanyRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class CompanyService {
@@ -21,6 +24,14 @@ public class CompanyService {
 
     public Company findByName(String name) {
         return repository.findByName(name).orElse(null);
+    }
+
+    public List<Company> findAll() {
+        return repository.findAll();
+    }
+
+    public Company findByAd(Ad ad) {
+        return findById(ad.getCompany().getId());
     }
 
     public void add(Company company) {
